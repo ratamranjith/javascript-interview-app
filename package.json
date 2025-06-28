@@ -27,12 +27,12 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
-    "electron-log": "^4.4.1",
+    "electron-log": "^4.4.8",
     "electron-updater": "^4.3.5"
   },
   "type": "commonjs",
   "devDependencies": {
-    "electron-builder": "^22.10.5",
-    "electron": "^37.1.0"
+    "electron": "^37.1.0",
+    "electron-builder": "^22.10.5"
   }
 }
