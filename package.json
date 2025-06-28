@@ -1,0 +1,38 @@
+{
+  "name": "desktop-app",
+  "version": "1.0.0",
+  "description": "This is a cross-platform desktop application built with Electron that features a tabbed interface, auto-update functionality, and custom window controls with a Windows-style UI.",
+  "main": "index.js",
+  "author": "RANJITH KUMAR V",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ratamranjith/javascript-interview-app"
+  },
+  "build": {
+    "productName": "Javascript Interview App",
+    "publish": {
+      "provider": "github",
+      "owner": "ratamranjith",
+      "repo": "javascript-interview-app"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "electron-log": "^4.4.1",
+    "electron-updater": "^4.3.5"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "electron-builder": "^22.10.5",
+    "electron": "^37.1.0"
+  }
+}

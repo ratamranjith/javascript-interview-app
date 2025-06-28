@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f0f0;
+  color: #333;
+  overflow: hidden;
+}
+
+.title-bar {
+  height: 32px;
+  background: #2d2d2d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+.title-bar-drag {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+  padding-left: 12px;
+}
+
+.window-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.window-controls {
+  display: flex;
+  height: 100%;
+  -webkit-app-region: no-drag;
+}
+
+.window-control {
+  width: 46px;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window-control:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.window-control.close:hover {
+  background: #e81123;
+}
+
+.window-control.minimize::before {
+  content: "─";
+}
+
+.window-control.maximize::before {
+  content: "□";
+}
+
+.window-control.close::before {
+  content: "×";
+}
+
+.content {
+  padding: 20px;
+  height: calc(100vh - 32px);
+  overflow-y: auto;
+}
+
+/* Add these to your existing CSS */
+.tab-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 30px); /* Adjust based on title bar height */
+}
+
+.tab-bar {
+  display: flex;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  padding: 0 5px;
+  height: 30px;
+}
+
+.tab {
+  padding: 5px 15px;
+  background: #e0e0e0;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  margin-right: 5px;
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+}
+
+.tab.active {
+  background: white;
+  border-bottom: 1px solid white;
+  margin-bottom: -1px;
+}
+
+.tab:hover {
+  background: #d0d0d0;
+}
+
+.tab-add {
+  padding: 5px 10px;
+  background: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+#content-frame {
+  flex-grow: 1;
+  padding: 15px;
+  overflow: auto;
+  background: white;
+}
+/* Add to style.css */
+.tab-bar {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+.tab-bar::-webkit-scrollbar {
+  height: 5px;
+}
+
+.tab-bar::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 5px;
+}
+/* Add to your existing CSS */
+#update-notification {
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+#update-notification.hidden {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+#update-action {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+#update-action:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#update-action:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

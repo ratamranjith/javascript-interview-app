@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Home",
+    "file": "content1.html",
+    "default": true
+  },
+  {
+    "name": "Dashboard",
+    "file": "dashboard.html",
+    "default": false
+  },
+  {
+    "name": "Settings",
+    "file": "settings.html",
+    "default": false
+  },
+  {
+    "name": "Reports",
+    "file": "reports.html",
+    "default": false
+  },
+  {
+    "name": "Analytics",
+    "file": "analytics.html",
+    "default": false
+  }
+]
