@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Home",
+    "icon": "home",
+    "file": "home.html",
+    "default": true
+  },
+  {
+    "name": "About",
+    "icon": "info",
+    "file": "about.html"
+  }
+]

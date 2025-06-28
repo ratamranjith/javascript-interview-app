@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <title>Electron Tabs App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-bar">
+        <div class="title-bar-drag">
+            <span class="window-title">Electron Tabs App</span>
+        </div>
+        <div class="window-controls">
+            <button class="window-control minimize" title="Minimize">
+                <span class="icon">−</span>
+            </button>
+            <button class="window-control maximize" title="Maximize">
+                <span class="icon">□</span>
+            </button>
+            <button class="window-control close" title="Close">
+                <span class="icon">×</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="tab-container">
+        <div id="tab-bar" class="tab-bar"></div>
+        <div id="content-frame" class="content"></div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>

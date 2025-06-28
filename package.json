@@ -2,7 +2,7 @@
   "name": "desktop-app",
   "version": "1.0.0",
   "description": "This is a cross-platform desktop application built with Electron that features a tabbed interface, auto-update functionality, and custom window controls with a Windows-style UI.",
-  "main": "index.js",
+  "main": "src/main/main.js",
   "author": "RANJITH KUMAR V",
   "license": "MIT",
   "repository": {
@@ -14,7 +14,9 @@
     "publish": {
       "provider": "github",
       "owner": "ratamranjith",
-      "repo": "javascript-interview-app"
+      "repo": "javascript-interview-app",
+      "private": false,
+      "token": "${process.env.GH_TOKEN}"
     },
     "win": {
       "target": "nsis"
@@ -27,8 +29,7 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
-    "electron-log": "^4.4.8",
-    "electron-updater": "^4.3.5"
+    "electron-updater": "^6.1.1"
   },
   "type": "commonjs",
   "devDependencies": {

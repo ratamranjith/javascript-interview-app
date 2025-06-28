@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Interview Comparisons</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .comparison-table {
+            min-width: 100%;
+        }
+
+        .comparison-table th {
+            white-space: nowrap;
+        }
+
+        .code-example {
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 p-6">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">JavaScript Interview Comparison Tables</h1>
+
+        <!-- var vs let vs const -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+            <div class="p-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">1. <code
+                        class="bg-gray-100 px-2 py-1 rounded">var</code> vs <code
+                        class="bg-gray-100 px-2 py-1 rounded">let</code> vs <code
+                        class="bg-gray-100 px-2 py-1 rounded">const</code></h2>
+                <div class="overflow-x-auto">
+                    <table class="comparison-table min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Feature</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    <code>var</code>
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    <code>let</code>
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    <code>const</code>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Scope</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Function</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Block</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Block</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Hoisting</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes (initialized as
+                                    undefined)</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes (not initialized)</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes (not initialized)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Re-declaration
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Allowed</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Not allowed</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Not allowed</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Re-assignment
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Allowed</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Allowed</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Not allowed</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Temporal Dead
+                                    Zone</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Global object
+                                    property</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h3 class="font-semibold text-blue-800 mb-2">Key Points:</h3>
+                    <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                        <li>Always prefer <code class="bg-blue-100 px-1 py-0.5 rounded">const</code> by default, use
+                            <code class="bg-blue-100 px-1 py-0.5 rounded">let</code> when you need to reassign, and
+                            avoid <code class="bg-blue-100 px-1 py-0.5 rounded">var</code>
+                        </li>
+                        <li><code class="bg-blue-100 px-1 py-0.5 rounded">const</code> doesn't make objects immutable -
+                            just prevents reassignment of the variable</li>
+                        <li>Temporal Dead Zone (TDZ) is the period between entering scope and being declared</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- == vs === -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+            <div class="p-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">2. <code
+                        class="bg-gray-100 px-2 py-1 rounded">==</code> (Loose Equality) vs <code
+                        class="bg-gray-100 px-2 py-1 rounded">===</code> (Strict Equality)</h2>
+                <div class="overflow-x-auto">
+                    <table class="comparison-table min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Comparison</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    <code>==</code>
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    <code>===</code>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Type coercion
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Performs type conversion
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No type conversion</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Example:
+                                    <code>5 == '5'</code>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">true</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">false</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Example:
+                                    <code>null == undefined</code>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">true</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">false</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Example:
+                                    <code>0 == false</code>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">true</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">false</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Performance
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Slightly faster (but
+                                    negligible)</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Slightly slower</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Recommended
+                                    use</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Rarely</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Always preferred</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 p-4 bg-green-50 rounded-lg">
+                    <h3 class="font-semibold text-green-800 mb-2">Key Points:</h3>
+                    <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                        <li><code class="bg-green-100 px-1 py-0.5 rounded">===</code> is safer as it doesn't do type
+                            coercion</li>
+                        <li>The only exception is when checking for <code
+                                class="bg-green-100 px-1 py-0.5 rounded">null</code> or <code
+                                class="bg-green-100 px-1 py-0.5 rounded">undefined</code> together: <code
+                                class="bg-green-100 px-1 py-0.5 rounded">value == null</code></li>
+                        <li>Type coercion rules can be surprising: <code
+                                class="bg-green-100 px-1 py-0.5 rounded">[] == ![]</code> is true!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- function vs arrow function -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+            <div class="p-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">3. Traditional Function vs Arrow Function</h2>
+                <div class="overflow-x-auto">
+                    <table class="comparison-table min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Feature</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Traditional Function</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Arrow Function</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    <code>this</code> binding
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Own <code>this</code>
+                                    context</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Inherits from parent scope
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    <code>arguments</code> object
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Available</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Not available</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Constructor
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Can be used as constructor
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Cannot be used as
+                                    constructor</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Implicit
+                                    return</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes (when no curly braces)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Syntax</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"><code>function() {}</code>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"><code>() => {}</code></td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Hoisting</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Fully hoisted</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Not hoisted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-purple-50 rounded-lg">
+                        <h3 class="font-semibold text-purple-800 mb-2">Traditional Function Example:</h3>
+                        <pre class="code-example bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>function greet(name) {
+    console.log(`Hello, ${name}!`);
+    console.log(arguments); // Arguments object
+}
+
+greet('Alice'); // Hello, Alice!
+new greet('Bob'); // Works (constructor)</code></pre>
+                    </div>
+                    <div class="p-4 bg-yellow-50 rounded-lg">
+                        <h3 class="font-semibold text-yellow-800 mb-2">Arrow Function Example:</h3>
+                        <pre class="code-example bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>const greet = (name) => {
+    console.log(`Hello, ${name}!`);
+    // No arguments object
+    // Can't use new
+};
+
+const square = x => x * x; // Implicit return
+
+greet('Alice'); // Hello, Alice!
+// new greet('Bob'); // TypeError</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Array methods comparison -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+            <div class="p-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">4. Array Methods: <code
+                        class="bg-gray-100 px-2 py-1 rounded">forEach</code> vs <code
+                        class="bg-gray-100 px-2 py-1 rounded">map</code> vs <code
+                        class="bg-gray-100 px-2 py-1 rounded">filter</code> vs <code
+                        class="bg-gray-100 px-2 py-1 rounded">reduce</code></h2>
+                <div class="overflow-x-auto">
+                    <table class="comparison-table min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Method</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Purpose</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Returns</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Mutates Original</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                                    Chainable</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    <code>forEach</code>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Iteration</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">undefined</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    <code>map</code>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Transformation</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">New array</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    <code>filter</code>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Selection</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">New array (subset)</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    <code>reduce</code>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Aggregation</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Single value</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">No</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Yes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-indigo-50 rounded-lg">
+                        <h3 class="font-semibold text-indigo-800 mb-2">Example Usage:</h3>
+                        <pre class="code-example bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>const numbers = [1, 2, 3, 4];
+
+// forEach - just iterate
+numbers.forEach(num => console.log(num));
+
+// map - transform
+const squares = numbers.map(num => num * num);
+
+// filter - select
+const evens = numbers.filter(num => num % 2 === 0);
+
+// reduce - aggregate
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+
+// Chaining example
+const result = numbers
+    .filter(n => n > 2)
+    .map(n => n * 2)
+    .reduce((a, b) => a + b);</code></pre>
+                    </div>
+                    <div class="p-4 bg-pink-50 rounded-lg">
+                        <h3 class="font-semibold text-pink-800 mb-2">When to Use Each:</h3>
+                        <ul class="list-disc pl-5 text-sm text-gray-700 space-y-2">
+                            <li><strong>forEach</strong>: When you need to perform side effects (logging, DOM
+                                manipulation)</li>
+                            <li><strong>map</strong>: When you need to transform each element in an array</li>
+                            <li><strong>filter</strong>: When you need to select elements based on a condition</li>
+                            <li><strong>reduce</strong>: When you need to compute a single value from the array (sum,
+                                average, etc.)</li>
+                            <li><strong>Chaining</strong>: Combine methods for complex transformations (map after
+                                filter, etc.)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
